@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import Header from "./Header";
+import UserCard from "./UserCard";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  const [showList, setShowList] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data.users || []); 
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setUsers([]); 
+        setLoading(false);
+      });
+  }, []);
+
+  const handleToggleList = () => {
+    setShowList(!showList); 
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Header title="Demo 5: Conditional Rendering" />
+      
+      <button onClick={handleToggleList}>
+        {showList ? "Hide Users" : "Show Users"}
+      </button>
+
+      {showList && (
+        loading ? (
+          <p>Loading users...</p>
+        ) : (
+          users.length === 0 ? (
+            <p>No Data Found!</p>
+          ) : (
+            users.map((user, index) => (
+              <UserCard
+                key={index}
+                name={user.name}
+                age={user.age}
+                email={user.email}
+                phone={user.phone}
+                address={user.address}
+              />
+            ))
+          )
+        )
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
