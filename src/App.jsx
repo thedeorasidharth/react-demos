@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div>
-      <Header title="Demo 9: Context API" />
+      <Header title="Demo 8: Context API" />
 
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
