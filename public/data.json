@@ -1,33 +1,207 @@
 {
   "users": [
-    { "name": "Arjun Sharma", "age": 28, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Priya Singh", "age": 25, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Mudhur Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Lalit Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Lalan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Kishor Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Rohan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan gupta", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Karan Kumar", "age": 32, "email": "...", "phone": "...", "address": "..." },
-    { "name": "Rohan Gupta", "age": 29, "email": "...", "phone": "...", "address": "..." }
+    {
+      "name": "Arjun Sharma",
+      "age": 28,
+      "email": "arjun.sharma@example.com",
+      "phone": "9876543210",
+      "address": "123, Gandhi Nagar, Delhi"
+    },
+    {
+      "name": "Priya Singh",
+      "age": 25,
+      "email": "priya.singh@example.com",
+      "phone": "9988776655",
+      "address": "456, Nehru Park, Mumbai"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.kumar@example.com",
+      "phone": "9123456789",
+      "address": "789, Shivaji Road, Bangalore"
+    },
+    {
+      "name": "Mudhur Kumar",
+      "age": 32,
+      "email": "mudhur.k@example.com",
+      "phone": "9876512345",
+      "address": "101, Lajpat Nagar, Jaipur"
+    },
+    {
+      "name": "Lalit Kumar",
+      "age": 32,
+      "email": "lalit.k@example.com",
+      "phone": "9998887776",
+      "address": "202, ABC Colony, Chennai"
+    },
+    {
+      "name": "Lalan Kumar",
+      "age": 32,
+      "email": "lalan.k@example.com",
+      "phone": "9012345678",
+      "address": "303, MNO Street, Kolkata"
+    },
+    {
+      "name": "Kishor Kumar",
+      "age": 32,
+      "email": "kishor.k@example.com",
+      "phone": "9123456780",
+      "address": "404, PQR Road, Pune"
+    },
+    {
+      "name": "Rohan Kumar",
+      "age": 32,
+      "email": "rohan.k@example.com",
+      "phone": "9876501234",
+      "address": "505, LMN Park, Hyderabad"
+    },
+    {
+      "name": "Karan gupta",
+      "age": 32,
+      "email": "karan.g@example.com",
+      "phone": "9987654321",
+      "address": "606, JKL Avenue, Ahmedabad"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k2@example.com",
+      "phone": "9098765432",
+      "address": "707, XYZ Lane, Lucknow"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k3@example.com",
+      "phone": "9112233445",
+      "address": "808, EFG Street, Bhopal"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k4@example.com",
+      "phone": "9223344556",
+      "address": "909, HIJ Road, Indore"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k5@example.com",
+      "phone": "9334455667",
+      "address": "111, QWE Colony, Surat"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k6@example.com",
+      "phone": "9445566778",
+      "address": "222, RTY Park, Vadodara"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k7@example.com",
+      "phone": "9556677889",
+      "address": "333, UIO Avenue, Nagpur"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k8@example.com",
+      "phone": "9667788990",
+      "address": "444, PAS Lane, Gwalior"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k9@example.com",
+      "phone": "9778899001",
+      "address": "555, DFG Street, Nashik"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k10@example.com",
+      "phone": "9889900112",
+      "address": "666, HJK Road, Kanpur"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k11@example.com",
+      "phone": "9900112233",
+      "address": "777, LMN Colony, Agra"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k12@example.com",
+      "phone": "9112233440",
+      "address": "888, OPQ Park, Varanasi"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k13@example.com",
+      "phone": "9223344550",
+      "address": "999, RST Avenue, Allahabad"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k14@example.com",
+      "phone": "9334455660",
+      "address": "100, UVW Lane, Dehradun"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k15@example.com",
+      "phone": "9445566770",
+      "address": "200, XYZ Street, Shimla"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k16@example.com",
+      "phone": "9556677880",
+      "address": "300, QAZ Colony, Manali"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k17@example.com",
+      "phone": "9667788990",
+      "address": "400, WSX Park, Mussoorie"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k18@example.com",
+      "phone": "9778899000",
+      "address": "500, EDCR Road, Rishikesh"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k19@example.com",
+      "phone": "9889900110",
+      "address": "600, FTV Lane, Haridwar"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.k20@example.com",
+      "phone": "9900112230",
+      "address": "700, GBY Avenue, Srinagar"
+    },
+    {
+      "name": "Rohan Gupta",
+      "age": 29,
+      "email": "rohan.g@example.com",
+      "phone": "9876543210",
+      "address": "800, HNU Road, Jammu"
+    }
   ]
 }

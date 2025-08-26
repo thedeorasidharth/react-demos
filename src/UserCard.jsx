@@ -2,28 +2,20 @@ import { useState } from "react";
 
 function UserCard({ name, age, email, phone, address }) {
   const [showMore, setShowMore] = useState(false);
-
+  
   const handleToggleDetails = () => {
     setShowMore(!showMore);
   };
 
   return (
-    <div
-      style={{
-        border: "1px solid gray",
-        borderRadius: "8px",
-        padding: "10px",
-        margin: "10px",
-        width: "300px",
-      }}
-    >
+    <div className="user-card">
       <h3>{name}</h3>
       <p>
         Age: {age} | Email: {email}
       </p>
 
       {showMore && (
-        <div style={{ marginTop: "10px" }}>
+        <div className="user-details">
           <p>
             Phone: {phone}
           </p>
@@ -33,7 +25,7 @@ function UserCard({ name, age, email, phone, address }) {
         </div>
       )}
 
-      <button onClick={handleToggleDetails} style={{ marginTop: "10px" }}>
+      <button onClick={handleToggleDetails} className="toggle-button">
         {showMore ? "Show Less" : "Show More"}
       </button>
     </div>
