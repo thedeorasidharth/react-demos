@@ -4,20 +4,27 @@ import UserCard from "./UserCard";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // JSON file se fetch karna
+    setLoading(true);
     fetch("/data.json")
       .then((res) => res.json())
-      .then((data) => setUsers(data.users))
-      .catch((err) => console.log(err));
+      .then((data) => {
+        setUsers(data.users);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <div>
-      <Header title="Demo-3: Props with JSON" />
+      <Header title="Demo 4: React State with useState" />
 
-      {users.length === 0 ? (
+      {loading ? (
         <p>Loading users...</p>
       ) : (
         users.map((user, index) => (
@@ -26,6 +33,8 @@ function App() {
             name={user.name}
             age={user.age}
             email={user.email}
+            phone={user.phone}
+            address={user.address}
           />
         ))
       )}

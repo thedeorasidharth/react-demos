@@ -1,8 +1,25 @@
 {
   "users": [
-    { "name": "Sidharth", "age": 21, "email": "sid@email.com" },
-    { "name": "Rahul", "age": 22, "email": "rahul@email.com" },
-    { "name": "Priya", "age": 20, "email": "priya@email.com" },
-    { "name": "Anita", "age": 23, "email": "anita@email.com" }
+    {
+      "name": "Arjun Sharma",
+      "age": 28,
+      "email": "arjun.sharma@example.com",
+      "phone": "9876543210",
+      "address": "123, Gandhi Nagar, Delhi"
+    },
+    {
+      "name": "Priya Singh",
+      "age": 25,
+      "email": "priya.singh@example.com",
+      "phone": "9988776655",
+      "address": "456, Nehru Park, Mumbai"
+    },
+    {
+      "name": "Karan Kumar",
+      "age": 32,
+      "email": "karan.kumar@example.com",
+      "phone": "9123456789",
+      "address": "789, Shivaji Road, Bangalore"
+    }
   ]
 }
