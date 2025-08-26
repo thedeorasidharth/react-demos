@@ -1,3 +1,5 @@
+// src/App.jsx
+
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import UserCard from "./UserCard";
@@ -5,54 +7,54 @@ import UserCard from "./UserCard";
 function App() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  const [showList, setShowList] = useState(true);
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
-    setLoading(true);
-    fetch("/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data.users || []); 
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
+    const fetchUsers = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("/data.json");
+        
+        if (!response.ok) {
+          throw new Error("Failed to fetch data.");
+        }
+        
+        const data = await response.json();
+        setUsers(data.users);
+        setError(null); 
+      } catch (err) {
+        setError(err.message); 
         setUsers([]); 
-        setLoading(false);
-      });
-  }, []);
+      } finally {
+        setLoading(false); 
+      }
+    };
 
-  const handleToggleList = () => {
-    setShowList(!showList); 
-  };
+    fetchUsers();
+  }, []); 
 
   return (
     <div>
-      <Header title="Demo 5: Conditional Rendering" />
-      
-      <button onClick={handleToggleList}>
-        {showList ? "Hide Users" : "Show Users"}
-      </button>
+      <Header title="Demo 6: React Hooks (useEffect + useState)" />
 
-      {showList && (
-        loading ? (
-          <p>Loading users...</p>
+      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+
+      {loading ? (
+        <p>Loading users...</p>
+      ) : (
+        users.length === 0 ? (
+          <p>No Data Found!</p>
         ) : (
-          users.length === 0 ? (
-            <p>No Data Found!</p>
-          ) : (
-            users.map((user, index) => (
-              <UserCard
-                key={index}
-                name={user.name}
-                age={user.age}
-                email={user.email}
-                phone={user.phone}
-                address={user.address}
-              />
-            ))
-          )
+          users.map((user, index) => (
+            <UserCard
+              key={index}
+              name={user.name}
+              age={user.age}
+              email={user.email}
+              phone={user.phone}
+              address={user.address}
+            />
+          ))
         )
       )}
     </div>
