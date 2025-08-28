@@ -1,92 +1,38 @@
-// src/App.jsx
-
-import { useState, useEffect } from "react";
-import Header from "./Header";
-import UserCard from "./UserCard";
-import "./App.css";
-
-const ITEMS_PER_PAGE = 5;
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Header from './Header';
+import UsersPage from './UsersPage'; 
+import About from './About';     
+import Contact from './Contact';     
+import './App.css';
+import { ThemeProvider } from './ThemeContext'; 
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch("/data.json");
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch data.");
-        }
-
-        const data = await response.json();
-        setUsers(data.users || []);
-        setError(null);
-      } catch (err) {
-        setError(err.message);
-        setUsers([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUsers();
-  }, []);
-
-  const totalPages = Math.ceil(users.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentItems = users.slice(startIndex, endIndex);
-
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-  };
-
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
-  };
-
   return (
-    <div>
-      <Header title="Demo 8: Context API" />
-
-      {error && <p style={{ color: "red" }}>Error: {error}</p>}
-
-      {loading ? (
-        <p>Loading users...</p>
-      ) : users.length === 0 ? (
-        <p>No Data Found!</p>
-      ) : (
-        <>
-          {currentItems.map((user, index) => (
-            <UserCard
-              key={startIndex + index}
-              name={user.name}
-              age={user.age}
-              email={user.email}
-              phone={user.phone}
-              address={user.address}
-            />
-          ))}
-
-          <div className="pagination-container">
-            <button onClick={handlePrevPage} disabled={currentPage === 1}>
-              Previous
-            </button>
-            <span>
-              Page {currentPage} of {totalPages}
-            </span>
-            <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-              Next
-            </button>
-          </div>
-        </>
-      )}
-    </div>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Header title="Demo 9: React Router" />
+        <nav style={{ padding: '10px 20px', backgroundColor: '#444', color: '#fff' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', gap: '20px' }}>
+            <li>
+              <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>Home</Link>
+            </li>
+            <li>
+              <Link to="/about" style={{ color: '#fff', textDecoration: 'none' }}>About</Link>
+            </li>
+            <li>
+              <Link to="/contact" style={{ color: '#fff', textDecoration: 'none' }}>Contact</Link>
+            </li>
+          </ul>
+        </nav>
+        <div style={{ padding: '20px' }}>
+          <Routes>
+            <Route path="/" element={<UsersPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
