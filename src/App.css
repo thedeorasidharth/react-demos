@@ -3,7 +3,77 @@
 /* Global styles */
 body {
   font-family: sans-serif;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* User Card styles */
+.user-card {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+.user-card h3 {
+  margin-top: 0;
+  color: #00bcd4;
+}
+
+.user-card p {
+  font-size: 14px;
+}
+
+/* Toggle button styles */
+.toggle-button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.toggle-button:hover {
+  filter: brightness(1.2); /* Thoda bright kare hover par */
+}
+
+/* Header Container styles */
+.header-container {
+  padding: 10px 20px;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.header-container h1 {
+  color: inherit;
+}
+
+.header-container button {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Pagination buttons styles */
+.pagination-container {
+  margin-top: 20px;
+}
+
+.pagination-container button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.pagination-container button:hover:not(:disabled) {
+  filter: brightness(1.2);
+}
+
+.pagination-container button:disabled {
+  filter: grayscale(0.8);
+  cursor: not-allowed;
 }
 
 /* Dark Theme */
