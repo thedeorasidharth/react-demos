@@ -6,6 +6,7 @@ import Contact from './Contact';
 import FavoritesPage from './FavoritesPage';
 import './App.css';
 import { ThemeProvider } from './ThemeContext';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
