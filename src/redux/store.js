@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 
 const loadState = () => {
   try {
@@ -8,7 +8,6 @@ const loadState = () => {
     }
     return JSON.parse(serializedState);
   } catch (err) {
-    console.error("Error loading state from localStorage:", err);
     return undefined;
   }
 };
@@ -18,15 +17,12 @@ const saveState = (state) => {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('reduxState', serializedState);
   } catch (err) {
-    console.error("Error saving state to localStorage:", err);
   }
 };
 
-const initialState = {
-  favorites: [],
-};
+const persistedState = loadState();
 
-function userReducer(state = initialState, action) {
+const userReducer = (state = { favorites: [] }, action) => {
   switch (action.type) {
     case 'ADD_TO_FAVORITES':
       const isAlreadyFavorite = state.favorites.some(user => user.email === action.payload.email);
@@ -45,14 +41,12 @@ function userReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
-const persistedState = loadState();
-
-const store = createStore(
-  userReducer,
-  persistedState
-);
+const store = configureStore({
+  reducer: userReducer,
+  preloadedState: persistedState,
+});
 
 store.subscribe(() => {
   saveState(store.getState());
