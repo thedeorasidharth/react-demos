@@ -4,7 +4,7 @@ const loadState = () => {
   try {
     const serializedState = localStorage.getItem('reduxState');
     if (serializedState === null) {
-      return undefined; 
+      return undefined;
     }
     return JSON.parse(serializedState);
   } catch (err) {
@@ -37,6 +37,11 @@ function userReducer(state = initialState, action) {
         ...state,
         favorites: [...state.favorites, action.payload],
       };
+    case 'REMOVE_FROM_FAVORITES':
+      return {
+        ...state,
+        favorites: state.favorites.filter(user => user.email !== action.payload.email),
+      };
     default:
       return state;
   }
@@ -46,7 +51,7 @@ const persistedState = loadState();
 
 const store = createStore(
   userReducer,
-  persistedState 
+  persistedState
 );
 
 store.subscribe(() => {
