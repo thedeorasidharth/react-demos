@@ -124,3 +124,17 @@ body.light-theme {
     color: #eee;
     border-color: #ddd;
 }
+
+/* searchbar */
+input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: transparent;
+    color: inherit; 
+}
+
+.light-theme input[type="text"] {
+    background-color: #fff;
+    color: #333;
+    border-color: #ddd;
+}
