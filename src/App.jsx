@@ -12,7 +12,7 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <Header title="Demo 10: Redux State Management" />
+        <Header title="Demo 11: Search & filtering" />
         <nav style={{ padding: '10px 20px', backgroundColor: '#444', color: '#fff' }}>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', gap: '20px' }}>
             <li><Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>Home</Link></li>
