@@ -1,26 +1,43 @@
+/* Base */
 body {
   font-family: sans-serif;
+  margin: 0;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-/* User Card styles */
-.user-card {
-  border: 1px solid;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 10px;
-  width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+body.dark-theme {
+  background-color: #18212f;
+  color: #fff;
 }
 
-.user-card h3 {
-  margin-top: 0;
-  color: #00bcd4;
+body.light-theme {
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-.user-card p {
-  font-size: 14px;
+/* Ensure headings & text adjust properly */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme a {
+  color: #fff;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6,
+body.light-theme p,
+body.light-theme span,
+body.light-theme a {
+  color: #333;
 }
 
 /* Toggle button styles */
@@ -36,21 +53,17 @@ body {
   filter: brightness(1.2); 
 }
 
-/* Header Container styles */
-.header-container {
-  padding: 10px 20px;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+.dark-theme .toggle-button {
+  background-color: #555;
+  color: #fff;
 }
 
-.header-container h1 {
-  color: inherit;
+.light-theme .toggle-button {
+  background-color: #eee;
+  color: #333;
 }
 
-.header-container button {
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-/* Pagination buttons styles */
+/* Pagination */
 .pagination-container {
   margin-top: 20px;
 }
@@ -73,27 +86,11 @@ body {
   cursor: not-allowed;
 }
 
-/* Dark Theme */
-body.dark-theme {
-  background-color: #222;
-  color: #fff;
-}
-
+/* Cards */
 .dark-theme .user-card {
   background-color: #333;
   border-color: #555;
   color: #fff;
-}
-
-.dark-theme .toggle-button {
-  background-color: #555;
-  color: #fff;
-}
-
-/* Light Theme */
-body.light-theme {
-  background-color: #f4f4f4;
-  color: #333;
 }
 
 .light-theme .user-card {
@@ -102,39 +99,41 @@ body.light-theme {
   color: #333;
 }
 
-.light-theme .toggle-button {
-  background-color: #eee;
-  color: #333;
-}
+/* Footer */
 .footer-container {
-    padding: 15px;
-    margin-top: 20px;
-    border-top: 1px solid;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+  padding: 15px;
+  border-top: 1px solid;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out;
 }
 
 .dark-theme .footer-container {
-    background-color: #333;
-    color: #fff;
-    border-color: #555;
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
 }
 
 .light-theme .footer-container {
-    background-color: #333;
-    color: #eee;
-    border-color: #ddd;
+  background-color: #fff;
+  color: #333;
+  border-color: #ddd;
 }
 
-/* searchbar */
+/* Searchbar */
 input[type="text"] {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: transparent;
-    color: inherit; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: transparent;
+  color: inherit; 
+}
+
+.dark-theme input[type="text"] {
+  background-color: #222;
+  color: #fff;
+  border-color: #555;
 }
 
 .light-theme input[type="text"] {
-    background-color: #fff;
-    color: #333;
-    border-color: #ddd;
+  background-color: #fff;
+  color: #333;
+  border-color: #ddd;
 }
