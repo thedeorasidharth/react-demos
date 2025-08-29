@@ -58,44 +58,58 @@ function UsersPage() {
   
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search by name or email..."
-        value={searchTerm}
-        onChange={(e) => {
-          setSearchTerm(e.target.value);
-          setCurrentPage(1); 
-        }}
-        style={{ width: '100%', padding: '10px', marginBottom: '20px', fontSize: '16px' }}
-      />
+      <div className="p-4 flex flex-col items-center">
+        <div className="w-full max-w-xl">
+          <input
+            type="text"
+            placeholder="Search by name or email..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1); 
+            }}
+            className="w-full p-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-4"
+          />
+        </div>
+      </div>
       
-      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+      {error && <p className="text-center text-red-500 my-4">Error: {error}</p>}
       
       {loading ? (
-        <p>Loading users...</p>
+        <p className="text-center my-8">Loading users...</p>
       ) : filteredUsers.length === 0 ? (
-        <p>No users found matching your search.</p>
+        <p className="text-center my-8">No users found matching your search.</p>
       ) : (
         <>
-          {currentItems.map((user, index) => (
-            <UserCard
-              key={user.email} 
-              name={user.name}
-              age={user.age}
-              email={user.email}
-              phone={user.phone}
-              address={user.address}
-            />
-          ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+            {currentItems.map((user, index) => (
+              <UserCard
+                key={user.email} 
+                name={user.name}
+                age={user.age}
+                email={user.email}
+                phone={user.phone}
+                address={user.address}
+              />
+            ))}
+          </div>
 
-          <div className="pagination-container">
-            <button onClick={handlePrevPage} disabled={currentPage === 1}>
+          <div className="flex justify-center items-center space-x-4 my-8">
+            <button
+              onClick={handlePrevPage}
+              disabled={currentPage === 1}
+              className="px-4 py-2 rounded-lg shadow-md bg-gray-300 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               Previous
             </button>
-            <span>
+            <span className="text-lg">
               Page {currentPage} of {totalPages}
             </span>
-            <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 rounded-lg shadow-md bg-gray-300 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               Next
             </button>
           </div>

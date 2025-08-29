@@ -1,20 +1,36 @@
+// src/UserCard.jsx
+
 import { useState } from "react";
-import { useDispatch } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; // useSelector import kiya
 
 function UserCard({ name, age, email, phone, address }) {
   const [showMore, setShowMore] = useState(false);
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
+
+  // useSelector se Redux store ke favorites ko lo
+  const favorites = useSelector(state => state.favorites);
+
+  // Check karo ki current user favorites list me hai ya nahi
+  const isFavorite = favorites.some(favUser => favUser.email === email);
 
   const handleToggleDetails = () => {
     setShowMore(!showMore);
   };
 
-  const handleAddToFavorites = () => {
-    dispatch({ 
-      type: 'ADD_TO_FAVORITES',
-      payload: { name, age, email, phone, address } 
-    });
-    alert(`${name} added to favorites!`);
+  const handleToggleFavorite = () => {
+    if (isFavorite) {
+      dispatch({
+        type: 'REMOVE_FROM_FAVORITES',
+        payload: { email }
+      });
+      alert(`${name} removed from favorites!`);
+    } else {
+      dispatch({ 
+        type: 'ADD_TO_FAVORITES',
+        payload: { name, age, email, phone, address } 
+      });
+      alert(`${name} added to favorites!`);
+    }
   };
 
   return (
@@ -35,7 +51,9 @@ function UserCard({ name, age, email, phone, address }) {
         {showMore ? "Show Less" : "Show More"}
       </button>
 
-      <button onClick={handleAddToFavorites}>Add to Favorites</button>
+      <button onClick={handleToggleFavorite}>
+        {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+      </button>
     </div>
   );
 }
